@@ -19,4 +19,4 @@ Este projeto é um web scraper construído com Node.js, Axios e Cheerio que cole
 1. Clone este repositório:
 
    ```bash
-   git clone https://github.com/seu-usuario/seu-repositorio.git
+   git clone https://github.com/AgdaScript/WebScrapingLenovoNotebooks.git
