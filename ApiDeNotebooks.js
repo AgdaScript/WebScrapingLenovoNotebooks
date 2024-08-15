@@ -7,12 +7,10 @@ const port = 3000;
 // Função para obter detalhes dos notebooks
 async function getNotebookDetails(notebookURL, basePrice) {
     try {
-        // Usar o preço base para o primeiro HDD e incrementar para HDDs adicionais
         const hdds = [];
         const baseHddPrice = basePrice;
         const hddPrices = [baseHddPrice, baseHddPrice + 20, baseHddPrice + 40, baseHddPrice + 60];
 
-        // Simular a obtenção de HDDs e seus preços (já que não extraímos os preços dos elementos)
         const hddValues = ['128', '256', '512', '1024'];
         
         for (let i = 0; i < hddValues.length; i++) {
@@ -44,6 +42,10 @@ async function getNotebooks() {
                 const imageURL = $(element).find('.image').attr('src');
                 const notebookURL = `https://webscraper.io${$(element).find('.title').attr('href')}`;
                 const price = parseFloat(priceText.replace('$', '').replace(',', ''));
+                const reviews = $(element).find('.ratings > p').text().trim();
+                
+                // Contar o número de estrelas
+                const rating = $(element).find('.ratings > p > .ws-icon.ws-icon-star').length;
 
                 // Obter detalhes dos HDDs para cada notebook
                 const hdds = await getNotebookDetails(notebookURL, price);
@@ -53,8 +55,9 @@ async function getNotebooks() {
                     description,
                     price,
                     imageURL: `https://webscraper.io${imageURL}`,
-                    reviews: $(element).find('.ratings > p').text().trim(),
-                    hdds // Incluir os HDDs com preços
+                    reviews,
+                    rating: `${rating} estrelas`, // Incluir a contagem de estrelas
+                    hdds
                 };
             }).get();
 
@@ -62,7 +65,7 @@ async function getNotebooks() {
             allNotebooks = allNotebooks.concat(notebooks);
 
             // Obter o link para a próxima página
-            const nextPage = $('.pagination .page-item.next a').attr('href');
+            const nextPage = $('.pagination li.page-item:not(.disabled):not(.active) a[rel="next"]').attr('href');
             if (nextPage) {
                 await scrapePage(`https://webscraper.io${nextPage}`);
             }
