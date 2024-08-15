@@ -27,7 +27,12 @@ Este projeto é um web scraper construído com Node.js, Axios e Cheerio que cole
     ```bash
     npm install
 
-3. Acesse a API:
+3. Instale as dependências:
+   
+    ```bash
+    npm install swagger-jsdoc swagger-ui-express
+
+4. Acesse a API:
    ```bash
    http://localhost:3000/api/notebooks
 
