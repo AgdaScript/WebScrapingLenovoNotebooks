@@ -1,6 +1,7 @@
-# Web Scraper para Notebooks com Paginação
+# Web Scraper para Notebooks 
 
-Este projeto é um web scraper construído com Node.js, Axios e Cheerio que coleta informações sobre notebooks listados em um site de e-commerce. O scraper navega por múltiplas páginas para extrair detalhes como título, descrição, preço, imagem, número de reviews, número de estrelas e preços de HDDs disponíveis.
+Este projeto é um web scraper construído com Node.js, Axios e Cheerio que coleta informações sobre notebooks listados em um site de e-commerce do [Web Scraper](https://webscraper.io/test-sites/e-commerce/static/computers/laptops)
+. O scraper navega por múltiplas páginas para extrair detalhes como título, descrição, preço, imagem, número de reviews, número de estrelas e preços de HDDs disponíveis.
 
 ## Funcionalidades
 
@@ -64,7 +65,8 @@ Contém todo o código da API, incluindo a lógica de scraping e o servidor Expr
 ```
 
 ## Tecnologias Utilizadas
-Node.js: Ambiente de execução do JavaScript.
-Express: Framework web para Node.js.
-Axios: Cliente HTTP para fazer requisições ao site.
-Cheerio: Biblioteca para fazer parsing de HTML e realizar o web scraping.
+-Node.js: Ambiente de execução do JavaScript.
+-Express: Framework web para Node.js.
+-Axios: Cliente HTTP para fazer requisições ao site.
+-Cheerio: Biblioteca para fazer parsing de HTML e realizar o web scraping.
+-Swagger: Para Documentacao da API
